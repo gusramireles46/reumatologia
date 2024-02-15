@@ -19,7 +19,7 @@
         </thead>
         <tbody>
             <?php
-            include 'especialidades_test.php';
+            include 'especialidades.db.php';
             foreach ($datos as $dato) :
             ?>
                 <tr>
