@@ -1,0 +1,46 @@
+body {
+    background-color: #F4F3EC !important;
+}
+
+section {
+    margin-bottom: 10px;
+}
+
+.navbar-menu-header {
+    background-color: aliceblue;
+}
+
+.banner-info {
+    background-color: aliceblue;
+}
+
+.banner-text {
+    margin: 10px;
+    padding: 20px;
+}
+
+.enlaces {
+    color: rgb(50, 124, 221);
+}
+
+.enlaces:hover {
+    color: rgb(34, 60, 133);
+}
+
+.active {
+    color: #000000 !important;
+    font-weight: bold !important;
+}
+
+.map-container {
+    padding: 20px;
+    background-color: #FFFFFF;
+}
+
+footer {
+    padding: 50px;
+}
+
+.justify-text {
+    text-align: justify;
+}
