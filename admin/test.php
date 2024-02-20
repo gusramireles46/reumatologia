@@ -10,8 +10,8 @@ $datos = $app->getOne($id_doctor);
 print_r($datos);*/
 $doctor['nombre'] = 'Chuck';
 $doctor['primer_apellido'] = 'Norris';
-$doctor['segundo_apellido'] = 'Pérez';
+$doctor['segundo_apellido'] = 'Castañeda';
 $doctor['fotografia'] = 'chuck.jpg';
-$fila = $app->insert($doctor);
+$fila = $app->update(6, $doctor);
 echo $fila;
 ?>
