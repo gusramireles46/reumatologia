@@ -11,4 +11,3 @@ class Sistema
         $this->conn = new PDO("mysql:host=$servername;dbname=$mydb", $username, $password);
     }
 }
-?>

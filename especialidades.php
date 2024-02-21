@@ -20,6 +20,8 @@
         <tbody>
             <?php
             include 'especialidades.db.php';
+            $app = new Especialidad();
+            $datos = $app->getAll();
             foreach ($datos as $dato) :
             ?>
                 <tr>
