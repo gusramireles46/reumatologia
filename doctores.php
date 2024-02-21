@@ -6,6 +6,8 @@
     <div class="row justify-content-center">
         <?php
         include 'doctores.db.php';
+        $app = new Doctor();
+        $datos = $app->getAll();
         foreach ($datos as $dato) :
         ?>
             <div class="col-lg-3 col-md-12">
