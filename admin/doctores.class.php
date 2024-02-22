@@ -5,7 +5,7 @@ class Doctores extends Sistema
     function getAll()
     {
         $this->connect();
-        $stmt = $this->conn->prepare("SELECT id_doctor AS ID, CONCAT(nombre, ' ', primer_apellido, ' ', segundo_apellido) AS Nombre, fotografia AS Foto FROM doctor;");
+        $stmt = $this->conn->prepare("SELECT id_doctor AS ID, nombre, primer_apellido, segundo_apellido, fotografia AS Foto FROM doctor;");
         $stmt->execute();
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $datos = $stmt->fetchAll();
@@ -15,7 +15,7 @@ class Doctores extends Sistema
     function getOne($id_doctor)
     {
         $this->connect();
-        $stmt = $this->conn->prepare("SELECT id_doctor AS ID, CONCAT(nombre, ' ', primer_apellido, ' ', segundo_apellido) AS Nombre, fotografia AS Foto 
+        $stmt = $this->conn->prepare("SELECT id_doctor AS ID, nombre, primer_apellido, segundo_apellido, fotografia AS Foto 
         FROM doctor
         WHERE id_doctor = :id_doctor;");
         $stmt->bindParam(':id_doctor', $id_doctor, PDO::PARAM_INT);
