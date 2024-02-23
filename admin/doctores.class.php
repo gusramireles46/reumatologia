@@ -22,17 +22,20 @@ class Doctores extends Sistema
         $stmt->execute();
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $datos = $stmt->fetchAll();
-        return $datos;
+        if (isset($datos[0])) {
+            return $datos[0];
+        }
+        return array();
     }
 
     function insert($datos)
     {
         $this->connect();
         $stmt = $this->conn->prepare("INSERT INTO doctor(nombre, primer_apellido, segundo_apellido, fotografia) VALUES (:nombre, :primer_apellido, :segundo_apellido, :fotografia);");
-        $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
-        $stmt->bindParam("primer_apellido", $datos["primer_apellido"], PDO::PARAM_STR);
-        $stmt->bindParam("segundo_apellido", $datos["segundo_apellido"], PDO::PARAM_STR);
-        $stmt->bindParam("fotografia", $datos["fotografia"], PDO::PARAM_STR);
+        $stmt->bindParam(':nombre', $datos['nombre'], PDO::PARAM_STR);
+        $stmt->bindParam(':primer_apellido', $datos['primer_apellido'], PDO::PARAM_STR);
+        $stmt->bindParam(':segundo_apellido', $datos['segundo_apellido'], PDO::PARAM_STR);
+        $stmt->bindParam(':fotografia', $datos['fotografia'], PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->rowCount();
     }

@@ -3,8 +3,8 @@
     <div class="row">
         <div class="col-lg-4 col-md-12">
             <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-primary">Regresar</button>
-                <button type="button" class="btn btn-success">Nuevo</button>
+                <a href="" class="btn btn-primary">Regresar</a>
+                <a href="doctores.php?action=CREATE" class="btn btn-success">Nuevo</a>
             </div>
         </div>
     </div>
@@ -30,8 +30,8 @@
                             <td><?php echo $dato['segundo_apellido']; ?></td>
                             <td><?php echo $dato['Foto']; ?></td>
                             <td>
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-warning">Actualizar</button>
+                                <div class="btn-group" role="group">
+                                    <a href="doctores.php?action=UPDATE&id_doctor=<?php echo $dato['ID']; ?>" class="btn btn-primary">Actualizar</button>
                                     <a href="doctores.php?action=DELETE&id_doctor=<?php echo $dato['ID']; ?>" class="btn btn-danger">Eliminar</a>
                                 </div>
                             </td>
