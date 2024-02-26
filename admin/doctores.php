@@ -31,6 +31,4 @@ switch ($action) {
         include 'views/doctores/index.php';
         break;
 }
-// $datos = $app->getAll();
-
 include 'views/footer.php';
