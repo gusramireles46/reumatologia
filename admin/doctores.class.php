@@ -5,27 +5,28 @@ class Doctores extends Sistema
     function getAll()
     {
         $this->connect();
-        $stmt = $this->conn->prepare("SELECT id_doctor AS ID, nombre, primer_apellido, segundo_apellido, fotografia AS Foto FROM doctor;");
+        $stmt = $this->conn->prepare("SELECT id_doctor, nombre, primer_apellido, segundo_apellido, fotografia FROM doctor;");
         $stmt->execute();
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $datos = $stmt->fetchAll();
+        $this->setCount(count($datos));
         return $datos;
     }
 
     function getOne($id_doctor)
     {
         $this->connect();
-        $stmt = $this->conn->prepare("SELECT id_doctor AS ID, nombre, primer_apellido, segundo_apellido, fotografia AS Foto 
-        FROM doctor
-        WHERE id_doctor = :id_doctor;");
+        $stmt = $this->conn->prepare("SELECT id_doctor, nombre, primer_apellido, segundo_apellido, fotografia FROM doctor WHERE id_doctor = :id_doctor;");
         $stmt->bindParam(':id_doctor', $id_doctor, PDO::PARAM_INT);
         $stmt->execute();
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $datos = array();
         $datos = $stmt->fetchAll();
         if (isset($datos[0])) {
+            $this->setCount(count($datos));
             return $datos[0];
         }
-        return array();
+        return $datos;
     }
 
     function insert($datos)
