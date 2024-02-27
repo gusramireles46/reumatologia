@@ -6,7 +6,7 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text"><i class="fa fa-user"></i></span>
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="nombre" placeholder="Nopmbre" name="nombre" value="<?php echo (isset($datos['nombre'])) ? $datos['nombre'] : '' ?>">
+                        <input required="requiered" type="text" class="form-control" id="nombre" placeholder="Nopmbre" name="nombre" value="<?php echo (isset($datos['nombre'])) ? $datos['nombre'] : '' ?>">
                         <label for="nombre">Nombre</label>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text"><i class="fa fa-image"></i></span>
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="fotografia" placeholder="Fotografía" name="fotografia" value="<?php echo (isset($datos['fotografia'])) ? $datos['fotografia'] : '' ?>">
+                        <input required="required" type="text" class="form-control" id="fotografia" placeholder="Fotografía" name="fotografia" value="<?php echo (isset($datos['fotografia'])) ? $datos['fotografia'] : '' ?>">
                         <label for="fotografia">Fotografía</label>
                     </div>
                 </div>

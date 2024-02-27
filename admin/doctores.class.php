@@ -32,13 +32,16 @@ class Doctores extends Sistema
     function insert($datos)
     {
         $this->connect();
-        $stmt = $this->conn->prepare("INSERT INTO doctor(nombre, primer_apellido, segundo_apellido, fotografia) VALUES (:nombre, :primer_apellido, :segundo_apellido, :fotografia);");
-        $stmt->bindParam(':nombre', $datos['nombre'], PDO::PARAM_STR);
-        $stmt->bindParam(':primer_apellido', $datos['primer_apellido'], PDO::PARAM_STR);
-        $stmt->bindParam(':segundo_apellido', $datos['segundo_apellido'], PDO::PARAM_STR);
-        $stmt->bindParam(':fotografia', $datos['fotografia'], PDO::PARAM_STR);
-        $stmt->execute();
-        return $stmt->rowCount();
+        if ($this->validateDoctor($datos)) {
+            $stmt = $this->conn->prepare("INSERT INTO doctor(nombre, primer_apellido, segundo_apellido, fotografia) VALUES (:nombre, :primer_apellido, :segundo_apellido, :fotografia);");
+            $stmt->bindParam(':nombre', $datos['nombre'], PDO::PARAM_STR);
+            $stmt->bindParam(':primer_apellido', $datos['primer_apellido'], PDO::PARAM_STR);
+            $stmt->bindParam(':segundo_apellido', $datos['segundo_apellido'], PDO::PARAM_STR);
+            $stmt->bindParam(':fotografia', $datos['fotografia'], PDO::PARAM_STR);
+            $stmt->execute();
+            return $stmt->rowCount();
+        }
+        return 0;
     }
 
     function delete($id_doctor)
@@ -63,5 +66,15 @@ class Doctores extends Sistema
         $stmt->execute();
         return $stmt->rowCount();
     }
+
+    function validateDoctor($datos)
+    {
+        if (empty($datos["nombre"])) {
+            return false;
+        }
+        if (empty($datos["fotografia"])) {
+            return false;
+        }
+        return true;
+    }
 }
-?>
